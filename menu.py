@@ -6,7 +6,8 @@ class Program:
         #layout
         layout = [
             [sg.Text('Login Test', font='Bahnschrift 25')],
-            [sg.InputText(size=(60,60))]
+            [sg.Text('Usuário'), sg.InputText(size=(60,60))],
+            [sg.Text('Senha  '), sg.InputText(password_char='*',size=(30,30))]
         ]
 
         #window

@@ -25,11 +25,11 @@ class Program:
       #layout of screen 2
         layout2 = [
           [sg.Text('Novo usuário')],
-          [sg.Text('Nome'), sg.InputText(size=(90,60))],
-          [sg.Text('Senha'), sg.InputText(password_char='*',size=(30,60))],
+          [sg.Text('Nome'), sg.InputText(key='_username_', size=(90,60))],
+          [sg.Text('Senha'), sg.InputText(key='password',password_char='*',size=(30,60))],
           [sg.Button(button_text='Registrar')]]
     
-        return sg.Window('Registered', layout2, size=(600,600), finalize=True)
+        return sg.Window('Registered', layout2, size=(600,600), finalize=True, resizable=True)
     
     
     def loop(self):
@@ -42,7 +42,9 @@ class Program:
             if event == 'Novo usuário?':
                 window2 = self.rg_window()
                 window1.hide()
-
+            if window == window2 and event == 'Registrar':
+                if len(values['_username_']) < 8 or len(values['password']) < 8:
+                    sg.PopupNoTitlebar('(Nome de usário/Senha) não pode ter menos de 8 caracteres')
 
 test1 = Program()
 test1.loop()

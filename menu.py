@@ -31,7 +31,7 @@ class Program:
         
         self.con.commit()
         self.con.close()
-    #checking values in loguin
+    #checking values in login
     def verificar(self,name,psw):
         self.con = sqlite3.connect('database.db')
         self.cursor = self.con.cursor()
